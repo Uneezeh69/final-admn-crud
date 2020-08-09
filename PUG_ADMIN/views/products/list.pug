@@ -2,15 +2,18 @@ extends ../layout
 
 block content
     .row
-        .col-sm-12
+        .col-sm-8
              h1 Items in Inventory
-                    
-    table.table
+        .col-sm-4
+             a(href="/products/add", class = "btn btn-primary") Add in Inventory         
+    table.table 
         thead
             tr
                 th Name
                 th Price
                 th Quantity
+                th Update
+                th Delete
              
         tbody
             each product in products
@@ -19,9 +22,9 @@ block content
                     td= product.price
                     td= product.quantity
                     td
-                        a(href="/products/cart/" + product._id, class="btn btn-success" ) Update
+                        a(href="/products/update/" + product._id, class="btn btn-warning" ) Update
                     td
-                        a(href="/products/cart/" + product._id, class="btn btn-success" ) Delete
+                        a(href="/products/delete/" + product._id, class="btn btn-danger" ) Delete
         
                     
                         

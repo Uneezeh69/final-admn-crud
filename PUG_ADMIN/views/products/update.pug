@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    h1 Update existing Item in Inventory
+    form(action="/products/update" , method="post")
+        .form-group 
+            label(for="name") Item Name
+            input#name(type="text", class="form-control",name="name")
+        .form-group 
+            label(for="price") Item Price
+            input#price(type="text", class="form-control", name="price")
+        .form-group 
+            label(for="quantity") Item Quantity
+            input#quantity(type="text", class="form-control", name="quantity")        
+        input(type="submit", value="Add to Inventory", class="btn btn-success")
+        a(href="/products" class="btn btn-secondary") Back

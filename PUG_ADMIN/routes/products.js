@@ -4,8 +4,29 @@ var Product = require("../models/products");
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   let products = await Product.find();
-  console.log(products);
+  //console.log(products);
   res.render('products/list', {products});
+});
+
+router.get('/add', async function(req, res, next) {
+  
+  res.render('products/add');
+});
+
+router.post('/add', async function(req, res, next) {
+  let product = new Product(req.body);
+  await product.save();
+  res.redirect('/products');
+});
+
+router.get('/delete/:id', async function(req, res, next) {
+  let product = await Product.findByIdAndDelete(req.params.id);
+  res.redirect("/products");
+});
+
+router.get('/update/:id', async function(req, res, next) {
+  let product = await Product.findById(req.params.id);
+  res.render("products/update", {product});
 });
 
 module.exports = router;
