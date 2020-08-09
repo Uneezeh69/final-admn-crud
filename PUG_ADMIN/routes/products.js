@@ -29,4 +29,13 @@ router.get('/update/:id', async function(req, res, next) {
   res.render("products/update", {product});
 });
 
+router.post('/update/:id', async function(req, res, next) {
+  let product = await Product.findById(req.params.id);
+  product.name = req.body.name;
+  product.price = req.body.price;
+  product.quantity = req.body.quantity;
+  await product.save();
+  res.redirect("/products");
+});
+
 module.exports = router;

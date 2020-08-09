@@ -2,15 +2,15 @@ extends ../layout
 
 block content
     h1 Update existing Item in Inventory
-    form(action="/products/update" , method="post")
+    form(action="/products/update/"+product._id , method="post")
         .form-group 
             label(for="name") Item Name
-            input#name(type="text", class="form-control",name="name")
+            input#name(type="text", class="form-control",name="name",value=product.name)
         .form-group 
             label(for="price") Item Price
-            input#price(type="text", class="form-control", name="price")
+            input#price(type="text", class="form-control", name="price", value=product.price)
         .form-group 
             label(for="quantity") Item Quantity
-            input#quantity(type="text", class="form-control", name="quantity")        
+            input#quantity(type="text", class="form-control", name="quantity", value=product.quantity)        
         input(type="submit", value="Add to Inventory", class="btn btn-success")
         a(href="/products" class="btn btn-secondary") Back
