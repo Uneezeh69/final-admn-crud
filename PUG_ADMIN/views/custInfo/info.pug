@@ -1,4 +1,28 @@
 extends ../layout
 
 block content
-    h1 Registered Customers
+    .row
+        .col-sm-12
+             h1 CUSTOMERS REGISTERED
+                    
+    table.table
+        thead
+            tr
+                th Name
+                th DOB
+                th Email
+             
+        tbody
+            each cust in info
+                tr
+                    td= cust.name
+                    td= cust.dob
+                    td= cust.email
+                   
+        
+                    
+                        
+                        
+                    
+                    
+                    

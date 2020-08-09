@@ -1,7 +1,9 @@
 extends ../layout
 
 block content
- 
+    .row
+        .col-sm-12
+             h1 Items in Inventory
                     
     table.table
         thead
@@ -16,8 +18,10 @@ block content
                     td= product.name
                     td= product.price
                     td= product.quantity
-                     td
-                        a(href="/products/cart/" + product._id, class="btn btn-success" ) Add To Cart
+                    td
+                        a(href="/products/cart/" + product._id, class="btn btn-success" ) Update
+                    td
+                        a(href="/products/cart/" + product._id, class="btn btn-success" ) Delete
         
                     
                         
