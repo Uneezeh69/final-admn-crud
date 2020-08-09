@@ -16,7 +16,8 @@ router.post('/login', async function(req, res, next) {
     password:req.body.password
   });
   if(!user) return res.redirect("/signup");
-  else res.redirect("/");
+  req.session.user = user;
+  return res.redirect("/");
 });
 
 router.post('/signup', async function(req, res, next) {
