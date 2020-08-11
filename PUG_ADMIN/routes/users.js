@@ -10,6 +10,11 @@ router.get('/login', function(req, res, next) {
   res.render("users/login");
 });
 
+router.get('/logout', function(req, res, next) {
+  req.session.user = null;
+  res.redirect("/login");
+});
+
 router.post('/login', async function(req, res, next) {
   let user = await User.findOne({
     email: req.body.email, 
